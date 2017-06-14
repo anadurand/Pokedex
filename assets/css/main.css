@@ -1,0 +1,45 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+header{
+  padding: 2% 5%;
+}
+header h1{
+  color: red;
+  text-align: center;
+}
+.search{
+  width: 80%;
+  position: relative;
+  margin: 35px 0;
+  display: inline-block;
+}
+.search input{
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid lightgray;
+  width: 70%;
+  height: 35px;
+  padding-left: 3.3rem;
+  font-size: 2rem;
+}
+.search input:focus{
+  outline: none;
+}
+.lupa{
+  font-size: 2.5rem;
+  color: lightgray;
+  position: absolute;
+}
+.button-order{
+  width: 19%;
+  display: inline-block;
+  text-align: right;
+}
+.button-order button{
+  width: 80px;
+}
