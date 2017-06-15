@@ -1,19 +1,52 @@
 *{
   box-sizing: border-box;
 }
+/*utils*/
+.verde{
+  background-color: #7aa44a;
+}
+.lila{
+  background-color: #b685c6;
+}
+.celeste{
+  background-color: #36a4d3;
+}
+.rosa{
+  background-color: #ef66b9;
+}
+.mostaza{
+  background-color: #a38321;
+}
+.gris-claro{
+  background-color: #dbdbdb;
+}
+.gris-modal{
+  background-color: #edecec;
+}
+.gris-oscuro{
+  color: #646464;
+}
+.gris-icon{
+  background-color: #646464;
+}
+.red{
+  background-color: #e84848;
+}
 body{
   margin: 0;
   padding: 0;
-}
-header{
-  padding: 2% 5%;
 }
 header h1{
   color: red;
   text-align: center;
 }
+.parent{
+  padding: 2% 5%;
+}
+.div-search{
+  margin-bottom: 20px;
+}
 .search{
-  width: 80%;
   position: relative;
   margin: 35px 0;
   display: inline-block;
@@ -36,10 +69,61 @@ header h1{
   position: absolute;
 }
 .button-order{
-  width: 19%;
-  display: inline-block;
   text-align: right;
 }
 .button-order button{
   width: 80px;
+}
+.pokemonContainer{
+  padding: 0 5px;
+  margin-bottom: 50px;
+  height: 350px;
+}
+.poke-container img{
+  width: 100%;
+}
+.enlaces{
+  width: 115px;
+}
+.enlaces a{
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 10px;
+}
+.pokeball{
+  background-image: url("../icon/pokeball_gray.png");
+}
+.like{
+  background-image: url("../icon/valentines-heart.png");
+}
+.share{
+  background-image: url("../icon/data.png");
+}
+.poke-info{
+  width: 100%;
+  height: 55px;
+  position: relative;
+  background-image: url("../img/trapecio.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  border-bottom: 2px solid #fff;
+  text-align: center;
+  padding-top: 5px;
+}
+.poke-name{
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+
+
+@media (min-width:600px) and (max-width:780px){
+
+  .pokemonContainer{
+    width: 50%;
+  }
+
 }
