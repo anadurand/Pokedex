@@ -32,6 +32,7 @@
 .red{
   background-color: #e84848;
 }
+
 body{
   margin: 0;
   padding: 0;
@@ -40,9 +41,7 @@ header h1{
   color: red;
   text-align: center;
 }
-.parent{
-  padding: 2% 5%;
-}
+
 .div-search{
   margin-bottom: 20px;
 }
@@ -70,14 +69,20 @@ header h1{
 }
 .button-order{
   text-align: right;
+  padding: 0;
 }
 .button-order button{
   width: 80px;
 }
+.root{
+  padding: 0;
+}
+.container-pokemon{
+  padding: 0;
+}
 .pokemonContainer{
-  padding: 0 5px;
-  margin-bottom: 50px;
-  height: 350px;
+  margin-bottom: 30px;
+  min-height: 330px;
 }
 .poke-container img{
   width: 100%;
@@ -117,13 +122,44 @@ header h1{
 .poke-name{
   text-transform: capitalize;
   font-size: 2rem;
+  margin-top: 5px;
 }
 
+@media (min-width: 450px){
+  .div-search{
+    display: flex;
+    align-items: baseline;
+  }
+}
 
-@media (min-width:600px) and (max-width:780px){
+@media (min-width:450px) and (max-width:650px){
 
   .pokemonContainer{
     width: 50%;
   }
+  .search{
+    width: 80%;
+  }
+  .button-order{
+    width: 20%;
+  }
 
+}
+@media (min-width:650px) and (max-width:780px){
+
+  .pokemonContainer{
+    width: 33%;
+  }
+  .search{
+    width: 80%;
+  }
+  .button-order{
+    width: 20%;
+  }
+
+}
+@media (min-width: 990px){
+  .col-md-2{
+    width: 20%;
+  }
 }
