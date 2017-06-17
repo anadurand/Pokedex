@@ -16,7 +16,7 @@ const ContruirModal = (recipient, id, nombre) => {
   const like = $('<a href="" class = "like"></a>');
   const share = $('<a href="" class = "share"></a>');
   const divDetalle = $('<div class="col-xs-12 col-sm-5"></div>');
-  const description = $('<p>qwertyu</p>');
+  const description = $('<p></p>');
   const info = $('<div class=""></div');
   const lista = $('<ul></ul>');
   const alto = $('<li>Altura:</li>');
@@ -58,22 +58,33 @@ const ContruirModal = (recipient, id, nombre) => {
         alto.append((response.height)/10 + " m") ;
         peso.append((response.weight)/10 + " kg") ;
 
-        pokemonDetalles.habilidad = response.abilities.filter(function(element){
-          if(!element.is_hidden){ return element.ability.name; }
+        response.abilities.forEach(function(element){
+          if(!element.is_hidden){ habilidad.append(element.ability.name); }
         });
-
+        var tipos = [];
+        var tipoUrl = [];
+        var debil = [];
         response.types.forEach(function(element){
-          pokemonDetalles.habilidad.push(element.type.name);
+          tipos.push(element.type.name);
+          tipoUrl.push(element.type.url);
         });
-
+        console.log(tipos);
+        tipoUrl.forEach(function(link){
+          $.get(link, function(response){
+            response.damage_relations.double_damage_from.forEach(function(element){
+              if((debil.indexOf(element.name))==-1){
+                debil.push(element.name);
+              }
+            });
+          });
+        });
+        console.log(debil);
     });
     $.get("http://pokeapi.co/api/v2/pokemon-species/" + id, function(response){
 
-        response.flavor_text_entries.forEach(function(element){
-          if(element.language.name == "en"){ pokemonDetalles.description = element.flavor_text;}
-        });
+        description.append(response.flavor_text_entries[1].flavor_text);
         response.genera.forEach(function(element){
-          if(element.language.name == "en"){ pokemonDetalles.categoria = element.genus;}
+          if(element.language.name == "en"){ categoria.append(element.genus);}
         });
 
     });
