@@ -20,8 +20,8 @@ const ContruirModal = (recipient, id, nombre) => {
   const info = $('<div class=""></div');
   const lista = $('<ul></ul>');
   const alto = $('<li>Altura:</li>');
-  const peso = $('<li>Peso:</li>');
-  const sexo = $('<li>Sexo:</li>');
+  const peso = $('<li>Peso: </li>');
+  const sexo = $('<li>Sexo: </li>');
   const categoria = $('<li>Categoria:</li>');
   const habilidad = $('<li>Habilidad: </li>');
   const type = $('<p>Tipo:</p>');
@@ -41,20 +41,42 @@ const ContruirModal = (recipient, id, nombre) => {
     lista.append(sexo);
     lista.append(categoria);
     lista.append(habilidad);
-
     divDetalle.append(description);
     divDetalle.append(info);
     divDetalle.append(type);
     divDetalle.append(debilidad);
-
-
     divBody.append(divItem);
     divBody.append(divDetalle);
   divContent.append(divName);
   divContent.append(close);
   divContent.append(divBody);
-
   divModal.append(divContent);
+
+
+
+    $.get("http://pokeapi.co/api/v2/pokemon/" + id, function(response){
+        alto.append((response.height)/10 + " m") ;
+        peso.append((response.weight)/10 + " kg") ;
+
+        pokemonDetalles.habilidad = response.abilities.filter(function(element){
+          if(!element.is_hidden){ return element.ability.name; }
+        });
+
+        response.types.forEach(function(element){
+          pokemonDetalles.habilidad.push(element.type.name);
+        });
+
+    });
+    $.get("http://pokeapi.co/api/v2/pokemon-species/" + id, function(response){
+
+        response.flavor_text_entries.forEach(function(element){
+          if(element.language.name == "en"){ pokemonDetalles.description = element.flavor_text;}
+        });
+        response.genera.forEach(function(element){
+          if(element.language.name == "en"){ pokemonDetalles.categoria = element.genus;}
+        });
+
+    });
 
   return divModal;
 }
@@ -66,6 +88,6 @@ $('#pokeDetail').on('show.bs.modal', function (event) {
   var id = button.data('id');
   var nombre = button.data('name')
   modal.empty();
-  GetValues(id);
+
   modal.append(ContruirModal(recipient, id, nombre));
 });
