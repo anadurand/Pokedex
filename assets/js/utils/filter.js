@@ -5,5 +5,6 @@ function filterByName(pokemons,query) {
     return pokemon.pokemon_species.name.toLowerCase().startsWith(query.toLowerCase())==true;
 
   });
+  state.selectedPokemons = filter;
   return filter;
 }

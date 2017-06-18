@@ -8,8 +8,8 @@ const pokemonItem = (pokemon) => {
   const name = $(`<h5 class="poke-name gris-oscuro">${pokemon.pokemon_species.name}</h5>`);
   const divEnlaces = $('<div class="enlaces center-block"></div');
   const detail = $('<a href="#pokeDetail" class = "pokeball" data-toggle="modal" data-ruta="'+ imgRuta +'" data-id="'+pokemon.entry_number+'" data-name="'+pokemon.pokemon_species.name+'" data-target="#pokeDetail"></a>');
-  const like = $('<a href="" class = "like"></a>');
-  const share = $('<a href="" class = "share"></a>');
+  const like = $('<a href="" class = "like" data-toggle="tooltip" data-placement="top" title="Like"></a>');
+  const share = $('<a href="" class = "share" data-toggle="tooltip" data-placement="top" title="Share"></a>');
 
     divEnlaces.append(detail);
     divEnlaces.append(like);
@@ -33,6 +33,12 @@ const reRender = ( div ,input)=>{
       div.append(pokemonItem(pokemon));
     });
 }
+const reOrder = ( div)=>{
+    div.empty();
+    state.selectedPokemons.forEach((pokemon) => {
+      div.append(pokemonItem(pokemon));
+    });
+}
 
 const Search = (updated) => {
   const parent = $('<div class="parent"></div>');
@@ -43,11 +49,22 @@ const Search = (updated) => {
   const button = $('<div class="button-order col-xs-3"><button class="btn btn-success">A - Z</button></div>')
   const pokemonContainer = $('<div class="container-pokemon container"></div>')
 
+  reRender(pokemonContainer ,"", updated);
   input.on("keyup", (e) => {
     e.preventDefault();
       reRender(pokemonContainer ,input.val(), updated);
   });
+  button.on("click", (e) => {
+    state.selectedPokemons.sort(function(a, b){
+      return (a.pokemon_species.name.localeCompare(b.pokemon_species.name));
+    });
+    reOrder(pokemonContainer);
 
+  });
+
+  $(function () {
+     $('[data-toggle="tooltip"]').tooltip();
+   });
 
   search.append(icon);
   search.append(input);

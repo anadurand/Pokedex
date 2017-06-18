@@ -1,5 +1,10 @@
+@font-face {
+  font-family: "Flexo";
+  src: url("../font/Flexo/Flexo-Demi.otf");
+}
 *{
   box-sizing: border-box;
+  font-family: "Flexo", sans-serif;
 }
 /*utils*/
 .verde{
@@ -22,6 +27,8 @@
 }
 .gris-modal{
   background-color: #edecec;
+  width: 86%;
+  position: relative;
 }
 .gris-oscuro{
   color: #646464;
@@ -31,6 +38,14 @@
 }
 .red{
   background-color: #e84848;
+}
+.loading{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+
 }
 
 body{
@@ -125,10 +140,106 @@ header h1{
   margin-top: 5px;
 }
 
+/*modal*/
+.modal-dialog{
+  width: 100%;
+}
+.poke-modal-container{
+  min-width: 90%;
+  height: 320px;
+  padding-top: 30px;
+  position: relative;
+}
+.poke-modal-container img{
+  margin-bottom: 6px;
+  width: 100%;
+}
+.closed{
+  background-image: url("../icon/cross-out.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+
+}
+.poke-modal-info{
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  background-image: url("../img/trapecio.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center top;
+  border-bottom: 6px solid #fff;
+  text-align: center;
+  padding-top: 20px;
+  bottom: 0;
+}
+.modal-name{
+  text-transform: capitalize;
+  font-size: 2.6rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+.modalBody{
+  padding-bottom: 30px;
+}
+.pokemon-modal-container{
+    margin-bottom: 40px;
+}
+.modal-description{
+  font-size: 1.7rem;
+  text-align: justify;
+}
+.modal-cuadro{
+  padding: 5px;
+  font-size: 1.5rem;
+  color: white;
+  line-height: 2;
+  overflow: auto;
+}
+.modal-list{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-transform: capitalize;
+}
+.tipo{
+  display: inline-block;
+  width: 100px;
+  padding: 5px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  color: white;
+  text-align: center;
+  text-transform: capitalize;
+}
 @media (min-width: 450px){
   .div-search{
     display: flex;
     align-items: baseline;
+  }
+  .modal-name{
+    font-size: 4rem;
+  }
+  .pokemon-modal-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+  }
+  .poke-modal-container{
+    height: 410px;
+    padding-top: 0;
+  }
+  .poke-modal-container img{
+    margin-bottom: 40px;
+  }
+  .modal-list{
+    height: 100%;
   }
 }
 
@@ -143,6 +254,9 @@ header h1{
   .button-order{
     width: 20%;
   }
+  .poke-modal-container{
+    height: 350px
+  }
 
 }
 @media (min-width:650px) and (max-width:780px){
@@ -155,6 +269,9 @@ header h1{
   }
   .button-order{
     width: 20%;
+  }
+  .poke-modal-container{
+    height: 410px
   }
 
 }
