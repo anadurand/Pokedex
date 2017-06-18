@@ -21,4 +21,4 @@
 
 ### Pàgina realizada
 
-En este link se muestra el producto final: ![Pokedex]()
+En este link se muestra el producto final: ![Pokedex](https://anadurand.github.io/Pokedex/)
