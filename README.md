@@ -21,4 +21,6 @@
 
 ### Pàgina realizada
 
+Esta página fue realizada para hacer consultas a la Api de Pokemon. Existe un inconveniente al levantar la página en GitHub, ya que github trabaja con "https" y la Api de pokemon trabaja con "http". Es por ello que existen conflictos al obtener la información de la Api de pokemon.
+
 En este link se muestra el producto final: ![Pokedex](https://anadurand.github.io/Pokedex/)

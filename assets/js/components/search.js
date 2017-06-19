@@ -3,7 +3,7 @@ const pokemonItem = (pokemon) => {
   const imgRuta=('000'+pokemon.entry_number).slice(-3);
   const divItem = $('<div class="pokemonContainer col-xs-12 col-sm-4 col-md-2"></div>');
   const divPok = $('<div class="poke-container gris-claro"></div>')
-  const img = $(`<a href="#"><img src="http://assets.pokemon.com/assets/cms2/img/pokedex/detail/${imgRuta}.png" alt=""></a>`);
+  const img = $(`<a href="#pokeDetail" data-toggle="modal" data-ruta="'+ imgRuta +'" data-id="'+pokemon.entry_number+'" data-name="'+pokemon.pokemon_species.name+'" data-target="#pokeDetail"><img src="http://assets.pokemon.com/assets/cms2/img/pokedex/detail/${imgRuta}.png" alt=""></a>`);
   const divDetail = $('<div class="poke-info"></div>');
   const name = $(`<h5 class="poke-name gris-oscuro">${pokemon.pokemon_species.name}</h5>`);
   const divEnlaces = $('<div class="enlaces center-block"></div');
