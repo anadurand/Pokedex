@@ -56,7 +56,7 @@ const ContruirModal = (recipient, id, nombre) => {
 
 
 
-    $.get("http://pokeapi.co/api/v2/pokemon/" + id, function(response){
+    $.get("https://pokeapi.co/api/v2/pokemon/" + id, function(response){
         alto.after('<li>'+ (response.height)/10 + " m"+ '</li>') ;
         peso.after('<li>'+ (response.weight)/10 + " kg"+ '</li>') ;
 
@@ -86,7 +86,7 @@ const ContruirModal = (recipient, id, nombre) => {
           });
         });
     });
-    $.get("http://pokeapi.co/api/v2/pokemon-species/" + id, function(response){
+    $.get("https://pokeapi.co/api/v2/pokemon-species/" + id, function(response){
 
         description.append(response.flavor_text_entries[1].flavor_text);
         response.genera.forEach(function(element){

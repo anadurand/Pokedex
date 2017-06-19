@@ -20,7 +20,7 @@ const updated = function (){
 $( _ => {
 
 
-  getJSON('http://pokeapi.co/api/v2/pokedex/1/',(error, json) =>{
+  getJSON('https://pokeapi.co/api/v2/pokedex/1/',(error, json) =>{
        if (error){return alert(error.message);}
        state.pokemons = json.pokemon_entries;
        const root = $('.root');
