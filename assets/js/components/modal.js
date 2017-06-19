@@ -8,7 +8,7 @@ const ContruirModal = (recipient, id, nombre) => {
   const divBody = $('<div class="container-fluid modalBody"></div>');
   const divItem = $('<div class="pokemon-modal-container col-xs-10 col-sm-4 col-xs-offset-1 col-sm-offset-0 col-md-4 col-md-offset-1"></div>');
   const divPok = $('<div class="poke-modal-container gris-claro"></div>')
-  const img = $(`<img src="http://assets.pokemon.com/assets/cms2/img/pokedex/detail/${recipient}.png" alt="">`);
+  const img = $(`<img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${recipient}.png" alt="">`);
   const divInfo = $('<div class="poke-modal-info"></div>');
   const name = $(`<h5 class="poke-name gris-oscuro">${nombre}</h5>`);
   const divEnlaces = $('<div class="enlaces center-block"></div');
